@@ -1,11 +1,10 @@
-const hat = require('hat');
 const Constants = require('../constants');
 
 const Feature = function(ctx, geojson) {
   this.ctx = ctx;
   this.properties = geojson.properties || {};
   this.coordinates = geojson.geometry.coordinates;
-  this.id = geojson.id || hat();
+  this.id = geojson.id || ctx.options.idGenerator();
   this.type = geojson.geometry.type;
 };
 

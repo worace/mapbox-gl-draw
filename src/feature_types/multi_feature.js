@@ -1,6 +1,5 @@
 const Feature = require('./feature');
 const Constants = require('../constants');
-const hat = require('hat');
 
 const models = {
   MultiPoint: require('./point'),
@@ -29,7 +28,7 @@ MultiFeature.prototype = Object.create(Feature.prototype);
 MultiFeature.prototype._coordinatesToFeatures = function(coordinates) {
   const Model = this.model.bind(this);
   return coordinates.map(coords => new Model(this.ctx, {
-    id: hat(),
+    id: this.ctx.options.idGenerator(),
     type: Constants.geojsonTypes.FEATURE,
     properties: {},
     geometry: {

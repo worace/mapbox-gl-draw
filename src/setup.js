@@ -86,6 +86,7 @@ module.exports = function(ctx) {
           type: Constants.geojsonTypes.FEATURE_COLLECTION,
           features: []
         },
+        tolerance: ctx.options.coldFeatureTolerance,
         type: 'geojson'
       });
 
@@ -95,6 +96,7 @@ module.exports = function(ctx) {
           type: Constants.geojsonTypes.FEATURE_COLLECTION,
           features: []
         },
+        tolerance: ctx.options.hotFeatureTolerance,
         type: 'geojson'
       });
 

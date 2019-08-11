@@ -1,6 +1,5 @@
 const isEqual = require('lodash.isequal');
 const normalize = require('@mapbox/geojson-normalize');
-const hat = require('hat');
 const featuresAt = require('./lib/features_at');
 const stringSetsAreEqual = require('./lib/string_sets_are_equal');
 const geojsonhint = require('@mapbox/geojsonhint');
@@ -78,7 +77,7 @@ module.exports = function(ctx, api) {
     const featureCollection = JSON.parse(JSON.stringify(normalize(geojson)));
 
     const ids = featureCollection.features.map(feature => {
-      feature.id = feature.id || hat();
+      feature.id = feature.id || ctx.options.idGenerator();
 
       if (feature.geometry === null) {
         throw new Error('Invalid geometry: null');

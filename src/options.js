@@ -1,5 +1,6 @@
 const xtend = require('xtend');
 const Constants = require('./constants');
+const hat = require('hat');
 
 const defaultOptions = {
   defaultMode: Constants.modes.SIMPLE_SELECT,
@@ -12,7 +13,10 @@ const defaultOptions = {
   styles: require('./lib/theme'),
   modes: require('./modes'),
   controls: {},
-  userProperties: false
+  userProperties: false,
+  idGenerator: hat,
+  hotFeatureTolerance: 0.375,
+  coldFeatureTolerance: 0.375
 };
 
 const showControls = {
